@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# Other files
+provider.tf
