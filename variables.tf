@@ -11,6 +11,11 @@ variable "location" {
   default     = "Australia East"
 }
 
+variable "username" {
+  description = "username for local administrator login account"
+  default     = "shoppingvm"
+}
+
 variable "password" {
   description = "Password for local administrator login account"
   default     = "P@ssw0rd1@"
@@ -29,17 +34,17 @@ variable "vm_size" {
 
 variable "vm_image_publisher" {
   description = "The name of the publisher of the image that you want to deploy."
-  default     = "MicrosoftWindowsServer"
+  default     = "MicrosoftWindowsDesktop"
 }
 
 variable "vm_image_offer" {
   description = "The name of the offer of the image that you want to deploy."
-  default     = "WindowsServer"
+  default     = "Windows-10"
 }
 
 variable "vm_image_sku" {
   description = "The sku of the image you want to deploy."
-  default     = "2016-Datacenter"
+  default     = "19h1-pro"
 }
 
 variable "vm_image_version" {

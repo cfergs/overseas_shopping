@@ -1,5 +1,5 @@
-output "vm_name" {
-  value = "${azurerm_virtual_machine.vm.name}"
+output "vm_IP" {
+  value = "${data.azurerm_public_ip.ip.ip_address}"
 }
 
 output "vm_username" {
