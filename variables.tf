@@ -9,45 +9,47 @@ Also you should only need to update the location variable.
 variable "location" {
   description = "The location/region where objects are created. Changing this forces a new resource to be created."
   default     = "Australia East"
+  type        = string
 }
 
 variable "username" {
   description = "username for local administrator login account"
   default     = "shoppingvm"
-}
-
-variable "password" {
-  description = "Password for local administrator login account"
-  default     = "P@ssw0rd1@"
+  type        = string
 }
 
 variable "res_grp" {
   description = "The name of the resource group in which the resources will be created"
   default     = "shopping_grp"
+  type        = string
 }
 
 variable "vm_size" {
   description = "VM size"
-  default     = "Standard_D1_v2"
+  default     = "Standard_D8a_v4"
+  type        = string
 }
-
 
 variable "vm_image_publisher" {
   description = "The name of the publisher of the image that you want to deploy."
   default     = "MicrosoftWindowsDesktop"
+  type        = string
 }
 
 variable "vm_image_offer" {
   description = "The name of the offer of the image that you want to deploy."
-  default     = "Windows-10"
+  default     = "windows-11"
+  type        = string
 }
 
 variable "vm_image_sku" {
   description = "The sku of the image you want to deploy."
-  default     = "19h1-pro"
+  default     = "win11-22h2-pro"
+  type        = string
 }
 
 variable "vm_image_version" {
   description = "The version of the image you want to deploy."
   default     = "latest"
+  type        = string
 }

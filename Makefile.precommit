@@ -1,0 +1,17 @@
+# pre-commit (https://pre-commit.com/)
+PRE_COMMIT_HOOK_STAMP := .git/hooks/pre-commit
+
+${PRE_COMMIT_HOOK_STAMP}:
+	pre-commit install
+
+pre-commit-install: ${PRE_COMMIT_HOOK_STAMP}
+
+pre-commit-uninstall:
+	pre-commit uninstall
+
+pre-commit-run:
+	pre-commit run --all-files
+
+
+# Clean
+clean: pre-commit-uninstall

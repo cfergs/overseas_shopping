@@ -1,0 +1,41 @@
+---
+repos:
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.22
+    hooks:
+      - id: tflint
+  - repo: local
+    hooks:
+      - id: terraform-fmt
+        name: Terraform fmt
+        description: Rewrites all Terraform configuration files to a canonical format
+        entry: hooks/terraform-fmt.sh
+        language: script
+        files: \.tf$
+        exclude: \.+.terraform\/.*$
+        require_serial: true
+      - id: terraform-validate
+        name: Terraform validate
+        description: Validates all Terraform configuration files
+        entry: hooks/terraform-validate.sh
+        language: script
+        files: \.tf$
+        exclude: \.+.terraform\/.*$
+        require_serial: true
+      - id: checkov
+        name: Checkov
+        description: This hook runs checkov.
+        entry: .venv/bin/checkov
+        args: ["-d", ".", "--quiet"]
+        language: python
+        pass_filenames: false
+        always_run: false
+        files: \.tf$
+        exclude: \.+.terraform\/.*$
+        require_serial: true
+      - id: requirements-txt-fixer
+        name: fix requirements.txt
+        description: sorts entries in requirements.txt.
+        entry: .venv/bin/requirements-txt-fixer
+        language: python
+        files: requirements.*\.txt$

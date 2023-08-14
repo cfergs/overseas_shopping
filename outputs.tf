@@ -1,11 +1,11 @@
 output "vm_IP" {
-  value = "${data.azurerm_public_ip.ip.ip_address}"
+  value = data.publicip_address.ip_address.ip
 }
 
 output "vm_username" {
-  value = "shoppingvm"
+  value = var.username
 }
 
 output "vm_password" {
-  value = "${var.password}"
+  value = random_string.password_generation.result
 }
